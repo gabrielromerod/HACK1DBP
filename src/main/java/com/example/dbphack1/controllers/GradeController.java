@@ -25,9 +25,16 @@ public class GradeController {
         return new ResponseEntity<>(grades, HttpStatus.OK);
     }
 
+    @GetMapping("/alumno/{id}")
+    public ResponseEntity<Grade> gradealumno(@PathVariable("id") Long id) {
+        Optional<Grade> grade = gradeService.getGradeById(id);
+        return grade.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Grade> grade(@PathVariable("id") Long id) {
         Optional<Grade> grade = gradeService.getGradeById(id);
         return grade.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
 }

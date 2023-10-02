@@ -21,8 +21,8 @@ public class Alumno {
     @Column(name = "code",nullable = false, length = 50, unique = true)
     private String code;
 
-    @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Grade> grades = new ArrayList<>();
+//    @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Grade> grades = new ArrayList<>();
 
 public Alumno() {
     }
@@ -31,7 +31,7 @@ public Alumno() {
         this.id = id;
         this.lastName = lastName;
         this.code = code;
-        this.grades = grades;
+//        this.grades = grades;
     }
 
     public Long getId() {
@@ -58,11 +58,11 @@ public Alumno() {
         this.code = code;
     }
 
-    public void setGrades(List<Grade> grades) {
-        this.grades = grades;
-    }
-
-    public List<Grade> getGrades() {
-        return grades;
-    }
+//    public void setGrades(List<Grade> grades) {
+//        this.grades = grades;
+//    }
+//
+//    public List<Grade> getGrades() {
+//        return grades;
+//    }
 }
