@@ -16,9 +16,12 @@ public class AlumnoController {
     private AlumnoRepository alumnoRepository;
 
 
-    @GetMapping
-    public List<Alumno> getAll() {
-        return alumnoRepository.findAll();
+    @GetMapping("/")
+    public ResponseEntity<List<Alumno>> getAll() {
+        List<Alumno> alumno =  alumnoRepository.findAll();
+
+        return ResponseEntity.status(200).body(alumno);
+
     }
 
     @GetMapping("/{id}")
