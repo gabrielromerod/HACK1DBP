@@ -1,4 +1,4 @@
-package com.example.dbphack1.controller;
+package com.example.dbphack1.controllers;
 
 
 import com.example.dbphack1.model.Alumno;
@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/alumnos")
+@RestController
+@RequestMapping("/alumnos")
 public class AlumnoController {
 
     @Autowired
@@ -27,8 +28,15 @@ public class AlumnoController {
 
     }
 
+    @PostMapping("/")
+    public ResponseEntity<Alumno> create(@RequestBody Alumno alumno) {
+        Alumno alumnoCreated = alumnoRepository.save(alumno);
+
+        return ResponseEntity.status(201).body(alumnoCreated);
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Alumno> getById(@PathVariable long id) {
+    public ResponseEntity<Alumno> getById(@PathVariable Long id) {
         Alumno alumno =  alumnoRepository.findById(id).orElse(null);
 
         if (alumno == null) {
@@ -37,5 +45,7 @@ public class AlumnoController {
         return ResponseEntity.status(200).body(alumno);
 
     }
+
+
 
 }

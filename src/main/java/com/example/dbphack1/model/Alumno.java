@@ -13,7 +13,7 @@ public class Alumno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false, unique = true)
-    private int id;
+    private Long id;
 
     @Column(name = "last_name",nullable = false, length = 255)
     private String lastName;
@@ -27,14 +27,14 @@ public class Alumno {
 public Alumno() {
     }
 
-    public Alumno(int id, String lastName, String code, List<Grade> grades) {
+    public Alumno(Long id, String lastName, String code, List<Grade> grades) {
         this.id = id;
         this.lastName = lastName;
         this.code = code;
         this.grades = grades;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -46,7 +46,7 @@ public Alumno() {
         return code;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

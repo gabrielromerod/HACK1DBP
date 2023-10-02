@@ -1,4 +1,4 @@
-package com.example.dbphack1.controller;
+package com.example.dbphack1.controllers;
 
 
 import com.example.dbphack1.model.Grade;
