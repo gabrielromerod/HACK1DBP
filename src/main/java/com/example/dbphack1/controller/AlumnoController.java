@@ -16,10 +16,13 @@ public class AlumnoController {
     private AlumnoRepository alumnoRepository;
 
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Alumno>> getAll() {
-        List<Alumno> alumno =  alumnoRepository.findAll();
 
+        List<Alumno> alumno =  alumnoRepository.findAll();
+        if (alumno.isEmpty()){
+            return ResponseEntity.status(404).body(null);
+        }
         return ResponseEntity.status(200).body(alumno);
 
     }
