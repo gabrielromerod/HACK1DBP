@@ -8,10 +8,13 @@ import java.util.List;
 @Entity
 @Table (name = "alumnos", schema="dbp-hckt1")
 public class Alumno {
-    @Id()
+
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false, unique = true)
     private int id;
+
     @Column(name = "last_name",nullable = false, length = 255)
     private String lastName;
 
