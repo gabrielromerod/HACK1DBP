@@ -16,9 +16,7 @@ public class Grade {
     private Long score;
 
 //    @ManyToOne(mappedBy = "alumno")
-    @Column(name = "alumno_id", nullable = false, unique = true)
-    private int alumnoId;
-
-
-
+    @ManyToOne
+    @JoinColumn(name = "alumno_id", nullable = false)
+    private Alumno alumno;
 }

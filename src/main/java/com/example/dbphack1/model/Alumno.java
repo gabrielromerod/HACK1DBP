@@ -2,6 +2,9 @@ package com.example.dbphack1.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table (name = "alumnos", schema="dbp-hckt1")
 public class Alumno {
@@ -15,4 +18,6 @@ public class Alumno {
     @Column(name = "code",nullable = false, length = 50, unique = true)
     private String code;
 
+    @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Grade> grades = new ArrayList<>();
 }
